@@ -22,7 +22,7 @@
 case node["platform_family"]
     when 'mac_os_x'
         include_recipe "homebrew"
-
+        package "node"
     when 'debian'
         include_recipe "apt"
 
@@ -33,6 +33,6 @@ case node["platform_family"]
           keyserver "keyserver.ubuntu.com"
           key "C7917B12"
         end
-end
 
-package "nodejs"
+        package "nodejs"
+end
