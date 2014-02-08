@@ -22,3 +22,7 @@
 
 include_recipe "homebrewalt"
 package "node"
+
+node['nodejs']['apps'].each do |app|
+  nodejs_package app
+end
