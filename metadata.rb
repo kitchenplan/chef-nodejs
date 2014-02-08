@@ -8,4 +8,4 @@ version          "0.0.1"
 
 supports mac_os_x
 
-depends "homebrew"
+depends "homebrewalt"
