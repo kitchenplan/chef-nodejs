@@ -3,6 +3,7 @@ action :install do
     command "npm -g install #{new_resource.name}"
     not_if "npm -g ls | grep '#{new_resource.name}'"
   end
+  new_resource.updated_by_last_action(true)
 end
 
 action :install_local do
@@ -14,6 +15,7 @@ action :install_local do
     command "npm install #{pkg_id}"
     not_if "cd #{path} && npm ls | grep '#{pkg_id}'"
   end
+  new_resource.updated_by_last_action(true)
 end
 
 action :install_from_json do
@@ -23,6 +25,7 @@ action :install_from_json do
     cwd path
     command cmd
   end
+  new_resource.updated_by_last_action(true)
 end
 
 action :uninstall do
@@ -30,6 +33,7 @@ action :uninstall do
     command "npm -g uninstall #{new_resource.name}"
     only_if "npm -g ls | grep '#{new_resource.name}'"
   end
+  new_resource.updated_by_last_action(true)
 end
 
 action :uninstall_local do
@@ -41,4 +45,5 @@ action :uninstall_local do
     command "npm uninstall #{pkg_id}"
     only_if "cd #{path} && npm | grep '#{pkg_id}'"
   end
+  new_resource.updated_by_last_action(true)
 end
